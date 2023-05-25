@@ -8,6 +8,7 @@ module.exports = (program) => {
     return new Promise((resolve, reject) => {
       try {
         var testData = require(process.cwd() + "/" + program.inputFile);
+        testData.tests.push(...testData.components);
         testData.directory = testData.directory.tree;
         return resolve(testData);
       } catch(e) {
